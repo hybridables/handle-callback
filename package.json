@@ -1,0 +1,33 @@
+{
+  "name": "handle-callback",
+  "version": "0.0.0",
+  "description": "Initial step for creating hybrid APIs, used by `hybridify`. Handle callback in promise - give promise and callback return promise.",
+  "scripts": {
+    "lint": "jshint index.js && jscs index.js --reporter inline",
+    "test": "mocha",
+    "test-cov": "istanbul cover _mocha",
+    "test-travis": "istanbul cover _mocha --report lcovonly"
+  },
+  "author": {
+    "name": "Charlike Make Reagent",
+    "email": "mameto_100@mail.bg",
+    "url": "https://github.com/tunnckoCore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tunnckoCore/handle-callback.git"
+  },
+  "keywords": [],
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/tunnckoCore/handle-callback/blob/master/license.md"
+  },
+  "dependencies": {
+    "is-promise": "^1.0.1"
+  },
+  "devDependencies": {
+    "istanbul-harmony": "^0.3.1",
+    "mocha": "*",
+    "mocha-lcov-reporter": "^0.0.1"
+  }
+}
