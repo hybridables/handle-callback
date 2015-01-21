@@ -26,6 +26,7 @@
     "is-promise": "^1.0.1"
   },
   "devDependencies": {
+    "bluebird": "^2.8.2",
     "istanbul-harmony": "^0.3.1",
     "mocha": "*",
     "mocha-lcov-reporter": "^0.0.1",
