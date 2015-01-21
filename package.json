@@ -1,6 +1,6 @@
 {
   "name": "handle-callback",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Initial step for creating hybrid APIs, used by `hybridify`. Handle callback in promise - give promise and callback return promise.",
   "scripts": {
     "lint": "jshint index.js && jscs index.js --reporter inline",
