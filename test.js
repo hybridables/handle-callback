@@ -12,13 +12,6 @@ var thenGot = require('then-got');
 var assert = require('assert');
 
 function fixture(url, callback) {
-  if (!url) {
-    throw new Error('fixture: should have at least one argument');
-  }
-  if (typeof url !== 'string') {
-    throw new TypeError('fixture: expect `url` be string');
-  }
-
   var promise = thenGot.get(url);
   if (callback) {
     promise = handleCallback(promise, callback);
@@ -129,6 +122,25 @@ describe('handle-callback:', function() {
         assert.throws(err, Error);
         done();
       })
+    });
+  });
+
+  describe('should throw error', function() {
+    it('when first argument not a Promise', function(done) {
+      function iifn() {
+        handleCallback('str', function() {});
+      }
+      assert.throws(iifn, TypeError);
+      done()
+    });
+
+    it('when second argument not a Function', function(done) {
+      function iifn() {
+        var promise = thenGot.get('https://github.com');
+        handleCallback(promise, 'not a function');
+      }
+      assert.throws(iifn, TypeError);
+      done()
     });
   });
 });
