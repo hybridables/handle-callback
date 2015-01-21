@@ -10,7 +10,7 @@ npm test
 
 
 ## Usage
-> For more use-cases see the [tests](./test.js)
+> For more use-cases see the [tests](./test.js).  
 > Useful for this waiting ES6 times. Natural bridge between callback style APIs and Promise APIs.
 
 Say you have old school callback (async) function
@@ -61,7 +61,7 @@ module.exports = function awesomeNumbers() {
 }
 ```
 
-and now you have **HYBRID**, yeah. That you can use bot API in same time
+and now you have **HYBRID**, yeah. That you can use both API in same time
 ```js
 var awesomeNumbersHybrid = require('./awesome-numbers');
 
