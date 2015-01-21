@@ -28,6 +28,7 @@
   "devDependencies": {
     "istanbul-harmony": "^0.3.1",
     "mocha": "*",
-    "mocha-lcov-reporter": "^0.0.1"
+    "mocha-lcov-reporter": "^0.0.1",
+    "then-got": "^1.0.2"
   }
 }

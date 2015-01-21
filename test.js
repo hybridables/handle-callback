@@ -8,7 +8,127 @@
 'use strict';
 
 var handleCallback = require('./index');
+var thenGot = require('then-got');
+var assert = require('assert');
+
+function fixture(url, callback) {
+  if (!url) {
+    throw new Error('fixture: should have at least one argument');
+  }
+  if (typeof url !== 'string') {
+    throw new TypeError('fixture: expect `url` be string');
+  }
+
+  var promise = thenGot.get(url);
+  if (callback) {
+    promise = handleCallback(promise, callback);
+  }
+  return promise;
+}
 
 describe('handle-callback:', function() {
-  // body
+  describe('should work', function() {
+    it('with callback api', function(done) {
+      this.timeout(10000);
+
+      var hybrid = fixture('https://github.com', function(err, res) {
+        var body = res[0];
+        var stream = res[1];
+
+        // callback api
+
+        assert.strictEqual(err, null);
+        assert(res);
+        assert(stream);
+        assert.strictEqual(body[0], '<'); // it is html
+        done()
+      })
+    });
+
+    it('with promise api', function(done) {
+      this.timeout(10000);
+
+      var hybrid = fixture('https://github.com');
+      hybrid.then(function(res) {
+        var body = res[0];
+        var stream = res[1];
+
+        // promise api
+
+        assert(res);
+        assert(stream);
+        assert.strictEqual(body[0], '<'); // it is html
+        done()
+      });
+    });
+
+    it('with both callback and promise api', function(done) {
+      this.timeout(10000);
+
+      var hybrid = fixture('https://github.com', function(err, res) {
+        var body = res[0];
+        var stream = res[1];
+
+        // callback api
+
+        assert.strictEqual(err, null);
+        assert(res);
+        assert(stream);
+        assert.strictEqual(body[0], '<'); // it is html
+      })
+      .then(function(res) {
+        var body = res[0];
+        var stream = res[1];
+
+        // promise api
+
+        assert(res);
+        assert(stream);
+        assert.strictEqual(body[0], '<'); // it is html
+        done()
+      });
+    });
+  });
+
+
+  describe('should be able to catch error', function() {
+    it('with callback api', function(done) {
+      this.timeout(10000);
+
+      var hybrid = fixture('https://gitfsdfsdfm', function(err, res) {
+
+        assert.throws(err, Error);
+
+        // callback api
+
+        assert.strictEqual(res, null || undefined);
+        done();
+      })
+    });
+
+    it('with promise api - with .catch(err)', function(done) {
+      this.timeout(10000);
+
+      var hybrid = fixture('https://gitfsdfsdfm')
+      hybrid.catch(function(err) {
+        // promise api
+        assert.throws(err, Error);
+        done();
+      })
+    });
+
+    it('with both callback and promise api', function(done) {
+      this.timeout(10000);
+
+      var hybrid = fixture('https://gitfsdfsdfm', function(err) {
+        // callback api
+        assert.throws(err, Error);
+      })
+      .catch(function(err) {
+        // promise api
+        assert.throws(err, Error);
+        done();
+      })
+    });
+  });
 });
