@@ -1,3 +1,10 @@
+
+
+## v1.0.2 / January 26, 2015
+- Release v1.0.2
+- update reflinks
+- change repo links
+
 ## v1.0.1 / January 21, 2015
 - add keywords
 
