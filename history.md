@@ -1,7 +1,15 @@
 
 
+## v1.1.0 / March 05, 2015
+- Release v1.1.0 / npm@v1.1.0
+- bump deps
+- lint tests
+- fix tests
+- update travis builds
+- `.catch` should throw, not return
+
 ## v1.0.2 / January 26, 2015
-- Release v1.0.2
+- Release v1.0.2 / npm@v1.0.2
 - update reflinks
 - change repo links
 
@@ -14,3 +22,5 @@
 
 ## v0.0.0 / January 21, 2015
 - init commits
+
+
