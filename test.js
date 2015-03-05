@@ -24,7 +24,7 @@ describe('handle-callback:', function() {
     it('with callback api', function(done) {
       this.timeout(10000);
 
-      var hybrid = fixture('https://github.com', function(err, res) {
+      fixture('https://github.com', function(err, res) {
         var body = res[0];
         var stream = res[1];
 
@@ -34,15 +34,15 @@ describe('handle-callback:', function() {
         assert.ok(res);
         assert.ok(stream);
         assert.strictEqual(body[0], '<'); // it is html
-        done()
-      })
+        done();
+      });
     });
 
     it('with promise api', function(done) {
       this.timeout(10000);
 
-      var hybrid = fixture('https://github.com');
-      hybrid.then(function(res) {
+      fixture('https://github.com')
+      .then(function(res) {
         var body = res[0];
         var stream = res[1];
 
@@ -51,14 +51,14 @@ describe('handle-callback:', function() {
         assert.ok(res);
         assert.ok(stream);
         assert.strictEqual(body[0], '<'); // it is html
-        done()
+        done();
       });
     });
 
     it('with both callback and promise api', function(done) {
       this.timeout(10000);
 
-      var hybrid = fixture('https://github.com', function(err, res) {
+      fixture('https://github.com', function(err, res) {
         var body = res[0];
         var stream = res[1];
 
@@ -78,7 +78,7 @@ describe('handle-callback:', function() {
         assert.ok(res);
         assert.ok(stream);
         assert.strictEqual(body[0], '<'); // it is html
-        done()
+        done();
       });
     });
   });
@@ -88,32 +88,29 @@ describe('handle-callback:', function() {
     it('with callback api', function(done) {
       this.timeout(10000);
 
-      var hybrid = fixture('https://gitfsdfsdfm', function(err, res) {
-
-        assert.ok(err instanceof Error);
-
+      fixture('https://gitfsdfsdfm', function(err, res) {
         // callback api
-
+        assert.ok(err instanceof Error);
         assert.strictEqual(res, null || undefined);
         done();
-      })
+      });
     });
 
     it('with promise api - with .catch(err)', function(done) {
       this.timeout(10000);
 
-      var hybrid = fixture('https://gitfsdfsdfm')
-      hybrid.catch(function(err) {
+      fixture('https://gitfsdfsdfm')
+      .catch(function(err) {
         // promise api
         assert.ok(err instanceof Error);
         done();
-      })
+      });
     });
 
     it('with both callback and promise api', function(done) {
       this.timeout(10000);
 
-      var hybrid = fixture('https://gitfsdfsdfm', function(err) {
+      fixture('https://gitfsdfsdfm', function(err) {
         // callback api
         assert.ok(err instanceof Error);
       })
@@ -121,7 +118,7 @@ describe('handle-callback:', function() {
         // promise api
         assert.ok(err instanceof Error);
         done();
-      })
+      });
     });
   });
 
@@ -131,7 +128,7 @@ describe('handle-callback:', function() {
         handleCallback('str', function() {});
       }
       assert.throws(iifn, TypeError);
-      done()
+      done();
     });
 
     it('when second argument not a Function', function(done) {
@@ -140,7 +137,7 @@ describe('handle-callback:', function() {
         handleCallback(promise, 'not a function');
       }
       assert.throws(iifn, TypeError);
-      done()
+      done();
     });
   });
 });
