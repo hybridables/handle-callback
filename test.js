@@ -31,8 +31,8 @@ describe('handle-callback:', function() {
         // callback api
 
         assert.strictEqual(err, null);
-        assert(res);
-        assert(stream);
+        assert.ok(res);
+        assert.ok(stream);
         assert.strictEqual(body[0], '<'); // it is html
         done()
       })
@@ -48,8 +48,8 @@ describe('handle-callback:', function() {
 
         // promise api
 
-        assert(res);
-        assert(stream);
+        assert.ok(res);
+        assert.ok(stream);
         assert.strictEqual(body[0], '<'); // it is html
         done()
       });
@@ -65,8 +65,8 @@ describe('handle-callback:', function() {
         // callback api
 
         assert.strictEqual(err, null);
-        assert(res);
-        assert(stream);
+        assert.ok(res);
+        assert.ok(stream);
         assert.strictEqual(body[0], '<'); // it is html
       })
       .then(function(res) {
@@ -75,8 +75,8 @@ describe('handle-callback:', function() {
 
         // promise api
 
-        assert(res);
-        assert(stream);
+        assert.ok(res);
+        assert.ok(stream);
         assert.strictEqual(body[0], '<'); // it is html
         done()
       });
@@ -90,7 +90,7 @@ describe('handle-callback:', function() {
 
       var hybrid = fixture('https://gitfsdfsdfm', function(err, res) {
 
-        assert.throws(err, Error);
+        assert.ok(err instanceof Error);
 
         // callback api
 
@@ -105,7 +105,7 @@ describe('handle-callback:', function() {
       var hybrid = fixture('https://gitfsdfsdfm')
       hybrid.catch(function(err) {
         // promise api
-        assert.throws(err, Error);
+        assert.ok(err instanceof Error);
         done();
       })
     });
@@ -115,11 +115,11 @@ describe('handle-callback:', function() {
 
       var hybrid = fixture('https://gitfsdfsdfm', function(err) {
         // callback api
-        assert.throws(err, Error);
+        assert.ok(err instanceof Error);
       })
       .catch(function(err) {
         // promise api
-        assert.throws(err, Error);
+        assert.ok(err instanceof Error);
         done();
       })
     });
