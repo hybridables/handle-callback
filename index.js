@@ -32,7 +32,7 @@ module.exports = function handleCallback(promise, callback) {
 
   promise.catch(function handleCallback_responseRejected(err) {
     callback(err);
-    return err;
+    throw err;
   });
 
   return promise;
