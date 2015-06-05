@@ -17,6 +17,34 @@ npm test
 
 ```js
 var handleCallback = require('handle-callback')
+var got = require('then-got')
+
+function hybridGot (url, callback) {
+  var promise = got(url)
+
+  if (callback) {
+    promise = handleCallback(promise, callback)
+  }
+
+  return promise
+}
+
+hybridGot('https://github.com')
+.then(function (res) {
+  console.log(res[0])
+  //=> html content of the page
+})
+.catch(console.error)
+
+// or both in same time
+hybridGot('https://github.com', function (err, res) {
+  console.log(err) //=> null
+  console.log(res[0]) //=> html of page
+})
+.then(function (res) {
+  console.log(res[0]) //=> html of page
+})
+.catch(console.error)
 ```
 
 
