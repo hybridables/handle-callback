@@ -1,5 +1,12 @@
 
 
+## 2.0.0 - 2015-03-05
+- Release v2.0.0 / npm@v2.0.0
+- add `related` section
+- update keywords
+- update readme example
+- refactor - close #1, close #2, close #3
+
 ## 1.1.0 - 2015-03-05
 - Release v1.1.0 / npm@v1.1.0
 - bump deps

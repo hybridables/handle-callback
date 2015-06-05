@@ -1,6 +1,6 @@
 {
   "name": "handle-callback",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Make promise to have support for callback api, it returns promise in that same time.",
   "repository": "hybridables/handle-callback",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
