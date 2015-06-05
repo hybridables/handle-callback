@@ -18,5 +18,25 @@
     "bluebird": "^2.9.27",
     "then-got": "^1.0.7"
   },
-  "keywords": []
+  "keywords": [
+    "api",
+    "apis",
+    "aplus",
+    "args",
+    "argument",
+    "arguments",
+    "bluebird",
+    "callback",
+    "callbacks",
+    "cb",
+    "handle",
+    "handle-callback",
+    "hybrid",
+    "hybrid-apis",
+    "hybridify",
+    "promise",
+    "promises",
+    "promises-aplus",
+    "then"
+  ]
 }
