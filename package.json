@@ -1,54 +1,22 @@
 {
   "name": "handle-callback",
-  "version": "1.1.0",
-  "description": "Initial step for creating hybrid APIs, used by `hybridify`. Handle callback in promise - give promise and callback return promise.",
+  "version": "0.0.0",
+  "description": "Make promise to have support for callback api, it returns promise in that same time.",
+  "repository": "hybridables/handle-callback",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "lint": "jshint index.js && jscs index.js --reporter inline",
-    "test": "mocha",
-    "test-cov": "istanbul cover _mocha",
-    "test-travis": "istanbul cover _mocha --report lcovonly"
-  },
-  "author": {
-    "name": "Charlike Mike Reagent",
-    "email": "mameto_100@mail.bg",
-    "url": "https://github.com/tunnckoCore"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/hybridables/handle-callback.git"
-  },
-  "keywords": [
-    "api",
-    "apis",
-    "aplus",
-    "args",
-    "argument",
-    "arguments",
-    "bluebird",
-    "callback",
-    "callbacks",
-    "cb",
-    "handle",
-    "handle-callback",
-    "hybrid",
-    "hybrid-apis",
-    "hybridify",
-    "promise",
-    "promises",
-    "promises-aplus",
-    "then"
-  ],
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/hybridables/handle-callback/blob/master/license.md"
+    "test": "standard && node test.js"
   },
   "dependencies": {
-    "is-promise": "~2.0.0"
+    "is-promise": "~2.0.0",
+    "promise2thunk": "~1.0.0"
   },
   "devDependencies": {
-    "bluebird": "~2.9.0",
-    "istanbul-harmony": "~0.3.1",
-    "mocha": "~2.1.0",
-    "then-got": "~1.0.5"
-  }
+    "assertit": "^0.1.0",
+    "bluebird": "^2.9.27",
+    "then-got": "^1.0.7"
+  },
+  "keywords": []
 }
