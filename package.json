@@ -10,13 +10,13 @@
     "test": "standard && node test.js"
   },
   "dependencies": {
-    "is-promise": "~2.0.0",
+    "is-promise": "~2.1.0",
     "promise2thunk": "~1.0.0"
   },
   "devDependencies": {
     "assertit": "^0.1.0",
-    "bluebird": "^2.9.27",
-    "then-got": "^1.0.7"
+    "bluebird": "^3.4.6",
+    "then-got": "^2.0.0"
   },
   "keywords": [
     "api",
